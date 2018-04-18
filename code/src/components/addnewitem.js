@@ -1,4 +1,5 @@
 import React from "react"
+import "./addnewitem.css"
 
 class AddNewItem extends React.Component {
   constructor(props) {
@@ -24,12 +25,12 @@ class AddNewItem extends React.Component {
       <div>
         <form onSubmit={this.itemOnSubmit}>
           <label>
-            <input
+            <input className="new-item-input"
               type="text"
               onChange={this.handleNewItem}
               value={this.state.newItem} />
           </label>
-          <button>Add</button>
+          <button className="add-item-button">Add</button>
         </form>
       </div>
     )
