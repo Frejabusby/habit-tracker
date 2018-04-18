@@ -23,7 +23,7 @@ class AddNewItem extends React.Component {
     console.log(this.state.newItem)
     return (
       <div>
-        <form onSubmit={this.itemOnSubmit}>
+        <form id="myForm" onSubmit={this.itemOnSubmit}>
           <label>
             <input className="new-item-input"
               type="text"

@@ -3,6 +3,7 @@ import Item from "./item"
 import AddNewItem from "./addnewitem"
 import Body from "./body"
 import Header from "./header"
+import Weekdays from "./weekdays"
 
 class App extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class App extends React.Component {
             key={listItem.id}
             text={listItem.text} />
         ))}
+        <Weekdays />
       </Body>
       </div>
     )
