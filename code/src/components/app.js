@@ -2,6 +2,7 @@ import React from "react"
 import Item from "./item"
 import AddNewItem from "./addnewitem"
 import Body from "./body"
+import Header from "./header"
 
 class App extends React.Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class App extends React.Component {
     return (
       <div>
       <Body>
+        <Header />
         <AddNewItem
           handleOnSubmit={this.itemToList} />
         {this.state.items.map(listItem => (
