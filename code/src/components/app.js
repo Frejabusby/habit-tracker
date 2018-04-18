@@ -1,6 +1,7 @@
 import React from "react"
 import Item from "./item"
 import AddNewItem from "./addnewitem"
+import Body from "./body"
 
 class App extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+      <Body>
         <AddNewItem
           handleOnSubmit={this.itemToList} />
         {this.state.items.map(listItem => (
@@ -34,6 +36,7 @@ class App extends React.Component {
             key={listItem.id}
             text={listItem.text} />
         ))}
+      </Body>
       </div>
     )
   }
