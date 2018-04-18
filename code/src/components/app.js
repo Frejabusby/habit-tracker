@@ -12,10 +12,23 @@ class App extends React.Component {
       ]
     }
   }
+  itemToList = (newText) => {
+  const environmentItems = this.state.items
+  environmentItems.push({
+   id: Date.now(), done: false, text: newText
+  })
+  this.setState ({
+    items: environmentItems
+  })
+  }
+
+
+
   render() {
     return (
       <div>
-        <AddNewItem />
+        <AddNewItem
+          handleOnSubmit={this.itemToList} />
         {this.state.items.map(listItem => (
           <Item
             key={listItem.id}
