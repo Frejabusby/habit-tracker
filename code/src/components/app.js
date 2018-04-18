@@ -30,17 +30,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <Body>
-        <Header />
-        <AddNewItem
-          handleOnSubmit={this.itemToList} />
-        {this.state.items.map(listItem => (
-          <Item
-            key={listItem.id}
-            text={listItem.text} />
-        ))}
-        <Weekdays />
-      </Body>
+        <Body>
+          <Header />
+          <AddNewItem
+            handleOnSubmit={this.itemToList} />
+          {this.state.items.map(listItem => (
+            <Item
+              key={listItem.id}
+              text={listItem.text} />
+          ))}
+          <Weekdays />
+        </Body>
       </div>
     )
   }
