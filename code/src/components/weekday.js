@@ -1,10 +1,12 @@
 import React from "react"
+import "./weekday.css"
 
 class Weekday extends React.Component {
   render() {
     return(
-      <div>
-      <h1>{this.props.day}</h1>
+      <div className="weekday-item">
+        <p>{this.props.day}</p>
+        <div className="item-box"></div>
       </div>
     )
   }

@@ -1,5 +1,6 @@
 import React from "react"
 import Weekday from "./weekday"
+import "./weekdays.css"
 
 class Weekdays extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Weekdays extends React.Component {
         { id: 4, done: false, day: "Thursday" },
         { id: 5, done: false, day: "Friday" },
         { id: 6, done: false, day: "Saturday" },
-        { id: 7, done: false, day: "Sunday" },
+        { id: 7, done: false, day: "Sunday" }
       ]
     }
   }
@@ -20,7 +21,7 @@ class Weekdays extends React.Component {
   render() {
     console.log(this.state.weekdays)
     return(
-      <div>
+      <div className="weekday-container">
         {this.state.weekdays.map(weekday => (
           <Weekday
             key={weekday.id}
