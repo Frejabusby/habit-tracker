@@ -4,26 +4,40 @@ import AddNewItem from "./addnewitem"
 import Body from "./body"
 import Header from "./header"
 import Weekdays from "./weekdays"
-
 class App extends React.Component {
   constructor(props) {
     super(props)
+    if (localStorage.getItem("storeItem")){ //Kollar om det finns något i localStorage, om det är sant det.
     this.state = {
-      items: [
-        { id: 1, done: false, text: "Bike to work" },
-        { id: 2, done: false, text: "Eat organic" }
-      ]
+        items: JSON.parse(localStorage.getItem("storeItem"))
+      }
+    } else { //annars skapar en tom array
+      this.state = {
+        items: []
+      }
     }
   }
+
+
   itemToList = (newText) => {
   const environmentItems = this.state.items
   environmentItems.push({
    id: Date.now(), done: false, text: newText
   })
+ localStorage.setItem("storeItem",JSON.stringify(environmentItems))
   this.setState ({
-    items: environmentItems
-  })
+  items: environmentItems
+    })
   }
+
+deleteGoal = (index) => {
+const itemsArray =  this.state.items
+itemsArray.splice(index,1)
+this.setState ({
+  items: itemsArray
+})
+localStorage.setItem("storeItem",JSON.stringify(itemsArray))
+}
 
 
 
@@ -34,11 +48,14 @@ class App extends React.Component {
           <Header />
           <AddNewItem
             handleOnSubmit={this.itemToList} />
-          {this.state.items.map(listItem => (
-            <Item
+          {this.state.items.map((listItem, index) => {
+            return <Item
+              index={index}
               key={listItem.id}
-              text={listItem.text} />
-          ))}
+              text={listItem.text}
+            handleRemoveGoal={this.deleteGoal}
+          />
+           })}
           <Weekdays />
         </Body>
       </div>

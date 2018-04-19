@@ -26,7 +26,7 @@ class AddNewItem extends React.Component {
         <form id="myForm" onSubmit={this.itemOnSubmit}>
           <label>
             <input className="new-item-input"
-              type="text"
+               type="text"
               onChange={this.handleNewItem}
               value={this.state.newItem} />
           </label>

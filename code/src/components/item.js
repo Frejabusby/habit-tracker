@@ -3,6 +3,13 @@ import "./item.css"
 
 class Item extends React.Component {
 
+removeGoal = (event) => {
+event.preventDefault()
+this.props.handleRemoveGoal(this.props.index)
+console.log("hej")
+}
+
+
   render() {
     return (
       <div>
@@ -12,6 +19,7 @@ class Item extends React.Component {
              <span className="checkmark"></span>
           <p className="goal-text">{this.props.text}</p>
           </label>
+           <button onClick={this.removeGoal}>Remove</button>
         </form>
       </div>
     )
