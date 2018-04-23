@@ -8,13 +8,13 @@ class AddNewItem extends React.Component {
       newItem: ""
     }
   }
-  handleNewItem = (event) => {
-    this.setState ({
-    newItem: event.target.value
+  handleNewItem = event => {
+    this.setState({
+      newItem: event.target.value
     })
   }
 
-  itemOnSubmit = (event) => {
+  itemOnSubmit = event => {
     event.preventDefault()
     this.props.handleOnSubmit(this.state.newItem)
   }
@@ -25,8 +25,9 @@ class AddNewItem extends React.Component {
       <div>
         <form id="myForm" onSubmit={this.itemOnSubmit}>
           <label>
-            <input className="new-item-input"
-               type="text"
+            <input
+              className="new-item-input"
+              type="text"
               onChange={this.handleNewItem}
               value={this.state.newItem} />
           </label>

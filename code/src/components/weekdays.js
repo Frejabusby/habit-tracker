@@ -1,32 +1,41 @@
 import React from "react"
 import Weekday from "./weekday"
+import moment from "moment"
 import "./weekdays.css"
 
 class Weekdays extends React.Component {
   constructor(props) {
     super(props)
+    const startOfWeek = moment().startOf("isoWeek")
+    const endOfWeek = moment().endOf("isoWeek")
+    const days = []
+    let day = startOfWeek
+
+    while (day <= endOfWeek) {
+      days.push(day.toDate())
+      day = day.clone().add(1, "d")
+    }
     this.state = {
-      weekdays: [
-        { id: 1, done: false, day: "Monday" },
-        { id: 2, done: false, day: "Tuesday" },
-        { id: 3, done: false, day: "Wednesday" },
-        { id: 4, done: false, day: "Thursday" },
-        { id: 5, done: false, day: "Friday" },
-        { id: 6, done: false, day: "Saturday" },
-        { id: 7, done: false, day: "Sunday" }
-      ]
+      weekdays: days
     }
   }
 
+  // passDateToItem = () => {
+  //   this.props.handleDate(this.state.weekdays)
+  // }
+
   render() {
     console.log(this.state.weekdays)
-    return(
+    console.log(this.props.id)
+    return (
       <div className="weekday-container">
         {this.state.weekdays.map(weekday => (
           <Weekday
             key={weekday.id}
-            day={weekday.day} />
+            date={weekday}
+            handleDate={this.storeDate} />
         ))}
+        {/* {this.passDateToItem()} */}
 
       </div>
 
