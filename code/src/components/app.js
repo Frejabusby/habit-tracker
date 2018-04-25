@@ -1,5 +1,5 @@
 import React from "react"
-import Item from "./item"
+import Goal from "./goal"
 import AddNewItem from "./addnewitem"
 import Body from "./body"
 import Header from "./header"
@@ -8,35 +8,55 @@ import Weekdays from "./weekdays"
 class App extends React.Component {
   constructor(props) {
     super(props)
+
+    // this.state = {
+    //   goals: [
+    //     {
+    //       key: "",
+    //       days: [false, false, false, false, false, false, false]
+    //     },
+    //     {
+    //       key: "",
+    //       days: [false, false, false, false, false, false, false]
+    //     }
+    //   ]
+    // }
+    const goalTasks = JSON.parse(localStorage.getItem("storeItem"))
     if (localStorage.getItem("storeItem")) { // Kollar om det finns något i localStorage, om det är sant det.
       this.state = {
-        items: JSON.parse(localStorage.getItem("storeItem"))
+        goals: goalTasks,
+        days: [false, false, false, false, false, false, false]
       }
-    } else { // annars skapar en tom array
+    } else {
       this.state = {
-        items: []
+        goals: {
+          key: "",
+          days: [false, false, false, false, false, false, false]
+        }
       }
     }
   }
 
   itemToList = newText => {
-    const environmentItems = this.state.items
+    console.log(this.state.goals)
+    const environmentItems = this.state.goals
     environmentItems.push({
-      id: Date.now(), done: false, text: newText
+      key: newText,
+      days: [false, false, false, false, false, false, false]
     })
     localStorage.setItem("storeItem", JSON.stringify(environmentItems))
     this.setState({
-      items: environmentItems
+      goals: environmentItems
     })
   }
 
   deleteGoal = index => {
-    const itemsArray = this.state.items
-    itemsArray.splice(index, 1)
+    const deletingGoal = this.state.goals
+    deletingGoal.splice(index, 1)
     this.setState({
-      items: itemsArray
+      goals: deletingGoal
     })
-    localStorage.setItem("storeItem", JSON.stringify(itemsArray))
+    localStorage.setItem("storeItem", JSON.stringify(deletingGoal))
   }
 
   render() {
@@ -46,18 +66,19 @@ class App extends React.Component {
           <Header />
           <AddNewItem
             handleOnSubmit={this.itemToList} />
-          {this.state.items.map((listItem, index) => {
-            return <Item
+          {this.state.goals.map((listGoal, index) => {
+            console.log(listGoal);
+            return <Goal
               index={index}
-              key={listItem.id}
-              text={listItem.text}
+              text={listGoal.key}
+              days={listGoal.days}
               handleRemoveGoal={this.deleteGoal} />
           })}
-          {this.state.items.map((listItem, index) => {
+          {/* {this.state.items.map((listItem, index) => {
             return <Weekdays
               index={index}
               id={listItem.id} />
-          })}
+          })} */}
         </Body>
       </div>
     )
