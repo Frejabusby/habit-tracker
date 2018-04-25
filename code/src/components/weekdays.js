@@ -20,13 +20,21 @@ class Weekdays extends React.Component {
     }
   }
 
-  // passDateToItem = () => {
-  //   this.props.handleDate(this.state.weekdays)
-  // }
+  storeDate = () => {
+    // const item = this.props.key
+    const weekdaysAgain = this.state.weekdays
+    const itemAgain = this.props.id
+    console.log(this.props.id)
+    weekdaysAgain.push({
+      item: itemAgain
+    })
+    this.setState({
+      weekdays: weekdaysAgain
+    })
+  }
 
   render() {
-    console.log(this.state.weekdays)
-    console.log(this.props.id)
+  console.log(this.state)
     return (
       <div className="weekday-container">
         {this.state.weekdays.map(weekday => (

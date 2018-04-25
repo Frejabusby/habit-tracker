@@ -53,8 +53,11 @@ class App extends React.Component {
               text={listItem.text}
               handleRemoveGoal={this.deleteGoal} />
           })}
-          <Weekdays
-            id={this.state.id} />
+          {this.state.items.map((listItem, index) => {
+            return <Weekdays
+              index={index}
+              id={listItem.id} />
+          })}
         </Body>
       </div>
     )
