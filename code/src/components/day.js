@@ -1,9 +1,11 @@
 import React from "react"
 
 class Day extends React.Component {
-  checkedDay = (event) => {
-    const checkValue = event.target.value
-    this.props.dayCheck(checkValue)
+  checkedDay = () => {
+    // const checkValue = event.target.value
+    // this.props.dayCheck(checkValue)
+    this.props.stateCallback2(this.props.index)
+
   }
 
 

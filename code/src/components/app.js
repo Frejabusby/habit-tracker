@@ -59,6 +59,16 @@ class App extends React.Component {
     localStorage.setItem("storeItem", JSON.stringify(deletingGoal))
   }
 
+  stateChange = (index) => {
+    console.log("stateCallback", index)
+    const updatedDone = this.state.days
+    updatedDone[index] = !updatedDone[index]
+    this.setState ({
+      days: updatedDone
+    })
+    // localStorage.setItem("storeItem", JSON.stringify(updatedDone))
+    }
+
   render() {
     return (
       <div>
@@ -67,12 +77,12 @@ class App extends React.Component {
           <AddNewItem
             handleOnSubmit={this.itemToList} />
           {this.state.goals.map((listGoal, index) => {
-            console.log(listGoal);
             return <Goal
               index={index}
               text={listGoal.key}
               days={listGoal.days}
-              handleRemoveGoal={this.deleteGoal} />
+              handleRemoveGoal={this.deleteGoal}
+              stateCallback={this.stateChange} />
           })}
           {/* {this.state.items.map((listItem, index) => {
             return <Weekdays

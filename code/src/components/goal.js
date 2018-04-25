@@ -10,7 +10,7 @@ class Goal extends React.Component {
   }
 
   handleChecked = () => {
-    
+
   }
 
   render() {
@@ -19,7 +19,10 @@ class Goal extends React.Component {
         <form>
           {this.props.days.map((day, index) => {
             return <Day
-            dayCheck={this.handleDayChecked}/>
+              index={index}
+            dayCheck={this.handleDayChecked}
+            stateCallback2={this.props.stateCallback}
+          />
           })}
           <p className="goal-text">{this.props.text}</p>
           <button onClick={this.removeGoal}>Remove</button>
