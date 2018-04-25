@@ -3,44 +3,43 @@ import Goal from "./goal"
 import AddNewItem from "./addnewitem"
 import Body from "./body"
 import Header from "./header"
-import Weekdays from "./weekdays"
+
 
 class App extends React.Component {
   constructor(props) {
     super(props)
 
-    // this.state = {
-    //   goals: [
-    //     {
-    //       key: "",
-    //       days: [false, false, false, false, false, false, false]
-    //     },
-    //     {
-    //       key: "",
-    //       days: [false, false, false, false, false, false, false]
-    //     }
-    //   ]
-    // }
-    const goalTasks = JSON.parse(localStorage.getItem("storeItem"))
-    if (localStorage.getItem("storeItem")) { // Kollar om det finns något i localStorage, om det är sant det.
-      this.state = {
-        goals: goalTasks,
-        days: [false, false, false, false, false, false, false]
-      }
-    } else {
-      this.state = {
-        goals: {
-          key: "",
+    this.state = {
+      goals: [
+        {
+          key: "Hejsaaaan",
+          days: [false, false, false, false, false, false, false]
+        },
+        {
+          key: "Hej",
           days: [false, false, false, false, false, false, false]
         }
-      }
+      ]
     }
+  //   const goalTasks = JSON.parse(localStorage.getItem("storeItem"))
+  //   if (localStorage.getItem("storeItem")) { // Kollar om det finns något i localStorage, om det är sant det.
+  //     this.state = goalTasks
+  //   } else {
+  //     this.state = {
+  //       goals: [{
+  //         id: Date.now(),
+  //         key: "",
+  //         days: [false, false, false, false, false, false, false]
+  //       }]
+  //     }
+  //   }
   }
 
   itemToList = newText => {
     console.log(this.state.goals)
     const environmentItems = this.state.goals
     environmentItems.push({
+      id: Date.now(),
       key: newText,
       days: [false, false, false, false, false, false, false]
     })
@@ -49,6 +48,11 @@ class App extends React.Component {
       goals: environmentItems
     })
   }
+
+indexFunction = (index) => { //Denna funktion skall skickas index på goal till stateChange. HUR?!?!?!?!
+  console.log(index)
+  return index
+}
 
   deleteGoal = index => {
     const deletingGoal = this.state.goals
@@ -60,16 +64,17 @@ class App extends React.Component {
   }
 
   stateChange = (index) => {
-    console.log("stateCallback", index)
-    const updatedDone = this.state.days
-    updatedDone[index] = !updatedDone[index]
-    this.setState ({
+    console.log("stateCallback", this.state.goals[0].days[index])
+    const updatedDone = this.state.goals.days[index]
+    this.updatedDone = !this.updatedDone
+    this.setState({
       days: updatedDone
     })
-    // localStorage.setItem("storeItem", JSON.stringify(updatedDone))
+  // localStorage.setItem("storeItem", JSON.stringify(updatedDone))
     }
 
   render() {
+console.log(this.indexFunction)
     return (
       <div>
         <Body>
@@ -79,10 +84,12 @@ class App extends React.Component {
           {this.state.goals.map((listGoal, index) => {
             return <Goal
               index={index}
+              id={listGoal.id}
               text={listGoal.key}
               days={listGoal.days}
               handleRemoveGoal={this.deleteGoal}
-              stateCallback={this.stateChange} />
+              stateCallback={this.stateChange}
+              getGoalIndex={this.indexFunction}/>
           })}
           {/* {this.state.items.map((listItem, index) => {
             return <Weekdays

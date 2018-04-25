@@ -9,10 +9,10 @@ class Goal extends React.Component {
     this.props.handleRemoveGoal(this.props.index)
   }
 
-  handleChecked = () => {
-
+  storeGoalIndex = event => {
+    event.preventDefault()
+    this.props.getGoalIndex(this.props.index)
   }
-
   render() {
     return (
       <div>
@@ -26,6 +26,7 @@ class Goal extends React.Component {
           })}
           <p className="goal-text">{this.props.text}</p>
           <button onClick={this.removeGoal}>Remove</button>
+          <button onClick={this.storeGoalIndex}>!!!</button>
         </form>
       </div>
     )
