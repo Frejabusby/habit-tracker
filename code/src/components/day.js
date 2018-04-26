@@ -5,7 +5,7 @@ class Day extends React.Component {
   render() {
     return (
       <div>
-        <label className="container">
+        <label className="checkbox-container">
           <input
             className="checkbox"
             checked={this.props.done}

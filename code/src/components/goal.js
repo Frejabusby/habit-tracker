@@ -1,6 +1,6 @@
 import React from "react"
 import Day from "./day"
-import "./item.css"
+import "./goal.css"
 
 class Goal extends React.Component {
 
@@ -13,14 +13,21 @@ class Goal extends React.Component {
     return (
       <div>
         <form>
-          {this.props.days.map((day, index) => {
-            return <Day
+          <h2 className="goal-text">{this.props.text}</h2>
+          <div className="day-container">
+            <h3>Måndag</h3>
+            <h3>Tisdag</h3>
+            <h3>Onsdag</h3>
+            <h3>Torsdag</h3>
+            <h3>Fredag</h3>
+            <h3>Lördag</h3>
+            <h3>Söndag</h3>
+            {this.props.days.map((day, index) => <Day
               key={index}
               done={day}
               dayCheck={this.handleDayChecked}
-              clickEvent={() => this.props.clickEvent(this.props.index, index)} />
-          })}
-          <p className="goal-text">{this.props.text}</p>
+              clickEvent={() => this.props.clickEvent(this.props.index, index)} />)}
+          </div>
           <button onClick={this.removeGoal}>Remove</button>
         </form>
       </div>

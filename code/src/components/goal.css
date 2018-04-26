@@ -1,8 +1,13 @@
+.day-container{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-column-gap: 10px;
+}
 
-.container {
-display: block;
+.checkbox-container {
+ display: block;
  position: relative;
-padding-left: 15px;
+ padding-left: 15px;
  margin-bottom: 12px;
  cursor: pointer;
  font-size: 22px;
@@ -12,7 +17,7 @@ padding-left: 15px;
  user-select: none;
 }
 
-.container input {
+.checkbox-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -27,11 +32,11 @@ padding-left: 15px;
   background-color: #cecece;
 }
 
-.container:hover input ~ .checkmark {
+.checkbox-container:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
-.container input:checked ~ .checkmark {
+.checkbox-container input:checked ~ .checkmark {
   background-color: #8bc745;
 }
 
@@ -40,11 +45,11 @@ padding-left: 15px;
   position: absolute;
   display: none;
 }
-.container input:checked ~ .checkmark:after {
+.checkbox-container input:checked ~ .checkmark:after {
   display: block;
 }
 
-.container .checkmark:after {
+.checkbox-container .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
