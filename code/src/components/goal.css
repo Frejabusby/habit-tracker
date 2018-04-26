@@ -67,3 +67,12 @@
   display: inline-block;
   margin-bottom: 50px;
 }
+
+button {
+  background-color: red;
+  border:none;
+  width: 7%;
+  color: white;
+  font-size: 14px;
+  height: 40px;
+}
