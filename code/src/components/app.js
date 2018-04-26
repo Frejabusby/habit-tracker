@@ -49,10 +49,10 @@ class App extends React.Component {
     })
   }
 
-indexFunction = (index) => { //Denna funktion skall skickas index på goal till stateChange. HUR?!?!?!?!
-  console.log(index)
-  return index
-}
+// indexFunction = (index) => { //Denna funktion skall skickas index på goal till stateChange. HUR?!?!?!?!
+//   console.log(index)
+//   return index
+// }
 
   deleteGoal = index => {
     const deletingGoal = this.state.goals
@@ -63,18 +63,25 @@ indexFunction = (index) => { //Denna funktion skall skickas index på goal till 
     localStorage.setItem("storeItem", JSON.stringify(deletingGoal))
   }
 
-  stateChange = (index) => {
-    console.log("stateCallback", this.state.goals[0].days[index])
-    const updatedDone = this.state.goals.days[index]
-    this.updatedDone = !this.updatedDone
-    this.setState({
-      days: updatedDone
-    })
-  // localStorage.setItem("storeItem", JSON.stringify(updatedDone))
-    }
+ dayClickHandler = (goalIndex, dayIndex) => {
+   let newState = this.state
+   newState.goals[goalIndex].days[dayIndex] = !newState.goals[goalIndex].days[dayIndex]
+   this.setState(newState)
+ }
+
+
+  // stateChange = (index) => {
+  //   console.log("stateCallback", this.state.goals[0].days[index])
+  //   const updatedDone = this.state.goals.days[index]
+  //   this.updatedDone = !this.updatedDone
+  //   this.setState({
+  //     days: updatedDone
+  //   })
+  // // localStorage.setItem("storeItem", JSON.stringify(updatedDone))
+  //   }
 
   render() {
-console.log(this.indexFunction)
+
     return (
       <div>
         <Body>
@@ -84,12 +91,15 @@ console.log(this.indexFunction)
           {this.state.goals.map((listGoal, index) => {
             return <Goal
               index={index}
+              key={index}
               id={listGoal.id}
               text={listGoal.key}
               days={listGoal.days}
               handleRemoveGoal={this.deleteGoal}
-              stateCallback={this.stateChange}
-              getGoalIndex={this.indexFunction}/>
+              // stateCallback={this.stateChange}
+              // getGoalIndex={this.indexFunction}
+              clickEvent={this.dayClickHandler.bind(this)}
+            />
           })}
           {/* {this.state.items.map((listItem, index) => {
             return <Weekdays
