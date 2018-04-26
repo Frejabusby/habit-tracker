@@ -1,14 +1,8 @@
 import React from "react"
 
 class Day extends React.Component {
-  // checkedDay = () => {
-  //   // console.log(this.props.index)
-  //   this.props.stateCallback2(this.props.index)
-  //
-  // }
 
-
-  render(){
+  render() {
     return (
       <div>
         <label className="container">
@@ -16,13 +10,12 @@ class Day extends React.Component {
             className="checkbox"
             checked={this.props.done}
             type="checkbox"
-            onChange={this.props.clickEvent}/>
-          <span className="checkmark"></span>
+            onChange={this.props.clickEvent} />
+          <span className="checkmark" />
         </label>
       </div>
     )
   }
-
 }
 
 export default Day

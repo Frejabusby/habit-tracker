@@ -9,10 +9,6 @@ class Goal extends React.Component {
     this.props.handleRemoveGoal(this.props.index)
   }
 
-  // storeGoalIndex = event => {
-  //   event.preventDefault()
-  //   this.props.getGoalIndex(this.props.index)
-  // }
   render() {
     return (
       <div>
@@ -21,15 +17,11 @@ class Goal extends React.Component {
             return <Day
               key={index}
               done={day}
-              // index={index}
-            dayCheck={this.handleDayChecked}
-            // stateCallback2={this.props.stateCallback}
-            clickEvent={ () => this.props.clickEvent(this.props.index, index) }
-          />
+              dayCheck={this.handleDayChecked}
+              clickEvent={() => this.props.clickEvent(this.props.index, index)} />
           })}
           <p className="goal-text">{this.props.text}</p>
           <button onClick={this.removeGoal}>Remove</button>
-          {/* <button onClick={this.storeGoalIndex}>!!!</button> */}
         </form>
       </div>
     )
