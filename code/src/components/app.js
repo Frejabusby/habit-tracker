@@ -8,7 +8,7 @@ import Header from "./header"
 class App extends React.Component {
   constructor(props) {
     super(props)
-
+    //
     // this.state = {
     //   goals: [
     //     {
@@ -43,10 +43,10 @@ class App extends React.Component {
       key: newText,
       days: [false, false, false, false, false, false, false]
     })
-    localStorage.setItem("storeItem", JSON.stringify(environmentItems))
     this.setState({
       goals: environmentItems
     })
+    localStorage.setItem("storeItem", JSON.stringify(this.state))
   }
 
 // indexFunction = (index) => { //Denna funktion skall skickas index på goal till stateChange. HUR?!?!?!?!
@@ -60,14 +60,14 @@ class App extends React.Component {
     this.setState({
       goals: deletingGoal
     })
-    localStorage.setItem("storeItem", JSON.stringify(deletingGoal))
+    localStorage.setItem("storeItem", JSON.stringify(this.state))
   }
 
  dayClickHandler = (goalIndex, dayIndex) => {
    let newState = this.state
    newState.goals[goalIndex].days[dayIndex] = !newState.goals[goalIndex].days[dayIndex]
    this.setState(newState)
-   localStorage.setItem("storeItem", JSON.stringify(newState))
+   localStorage.setItem("storeItem", JSON.stringify(this.state))
  }
 
 

@@ -16,7 +16,7 @@ class Day extends React.Component {
             className="checkbox"
             checked={this.props.done}
             type="checkbox"
-            onClick={this.props.clickEvent}/>
+            onChange={this.props.clickEvent}/>
           <span className="checkmark"></span>
         </label>
       </div>
