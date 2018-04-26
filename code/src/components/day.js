@@ -14,10 +14,9 @@ class Day extends React.Component {
         <label className="container">
           <input
             className="checkbox"
+            checked={this.props.done}
             type="checkbox"
-            onClick={this.props.clickEvent} />
-            {/* // checked=
-            // onChange={this.checkedDay}  /> */}
+            onClick={this.props.clickEvent}/>
           <span className="checkmark"></span>
         </label>
       </div>

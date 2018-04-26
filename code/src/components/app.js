@@ -9,30 +9,30 @@ class App extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      goals: [
-        {
-          key: "Hejsaaaan",
+    // this.state = {
+    //   goals: [
+    //     {
+    //       key: "Hejsaaaan",
+    //       days: [false, false, false, false, false, false, false]
+    //     },
+    //     {
+    //       key: "Hej",
+    //       days: [false, false, false, false, false, false, false]
+    //     }
+    //   ]
+    // }
+    const goalTasks = JSON.parse(localStorage.getItem("storeItem"))
+    if (localStorage.getItem("storeItem")) { // Kollar om det finns något i localStorage, om det är sant det.
+      this.state = goalTasks
+    } else {
+      this.state = {
+        goals: [{
+          id: Date.now(),
+          key: "",
           days: [false, false, false, false, false, false, false]
-        },
-        {
-          key: "Hej",
-          days: [false, false, false, false, false, false, false]
-        }
-      ]
+        }]
+      }
     }
-  //   const goalTasks = JSON.parse(localStorage.getItem("storeItem"))
-  //   if (localStorage.getItem("storeItem")) { // Kollar om det finns något i localStorage, om det är sant det.
-  //     this.state = goalTasks
-  //   } else {
-  //     this.state = {
-  //       goals: [{
-  //         id: Date.now(),
-  //         key: "",
-  //         days: [false, false, false, false, false, false, false]
-  //       }]
-  //     }
-  //   }
   }
 
   itemToList = newText => {
@@ -67,6 +67,7 @@ class App extends React.Component {
    let newState = this.state
    newState.goals[goalIndex].days[dayIndex] = !newState.goals[goalIndex].days[dayIndex]
    this.setState(newState)
+   localStorage.setItem("storeItem", JSON.stringify(newState))
  }
 
 

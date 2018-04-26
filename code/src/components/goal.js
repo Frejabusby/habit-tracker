@@ -20,7 +20,7 @@ class Goal extends React.Component {
           {this.props.days.map((day, index) => {
             return <Day
               key={index}
-            
+              done={day}
               // index={index}
             dayCheck={this.handleDayChecked}
             // stateCallback2={this.props.stateCallback}
