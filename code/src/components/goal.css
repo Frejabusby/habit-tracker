@@ -87,3 +87,7 @@
   font-size: 14px;
   height: 40px;
 }
+
+.remove-button:hover {
+  background-color: #c64141
+}
