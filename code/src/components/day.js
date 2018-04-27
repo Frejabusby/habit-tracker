@@ -4,7 +4,7 @@ class Day extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="day-checkbox">
         <label className="checkbox-container">
           <input
             className="checkbox"
