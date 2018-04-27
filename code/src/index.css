@@ -22,14 +22,14 @@ time, mark, audio, video {
 
 * {
   box-sizing: border-box;
+	outline: none;
 }
 
-* {
-  outline: none;
+body {
+	background: #efefef;
 }
 
 h1, h2, h3, p {
-  
 	font-family: "PT Sans Narrow", sans-serif;
 }
 
