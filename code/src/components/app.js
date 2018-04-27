@@ -14,7 +14,7 @@ class App extends React.Component {
       this.state = {
         goals: [{
           id: Date.now(),
-          key: "",
+          text: "",
           days: [false, false, false, false, false, false, false]
         }]
       }
@@ -26,11 +26,12 @@ class App extends React.Component {
     const environmentItems = this.state.goals
     environmentItems.push({
       id: Date.now(),
-      key: newText,
+      text: newText,
       days: [false, false, false, false, false, false, false]
     })
     this.setState({
       goals: environmentItems
+
     })
     localStorage.setItem("storeItem", JSON.stringify(this.state))
   }
@@ -62,7 +63,7 @@ class App extends React.Component {
            return <Goal
              index={index}
              key={listGoal.id}
-             text={listGoal.key}
+             text={listGoal.text}
              days={listGoal.days}
              handleRemoveGoal={this.deleteGoal}
              clickEvent={this.dayClickHandler} />
