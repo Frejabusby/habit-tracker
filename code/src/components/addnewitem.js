@@ -27,11 +27,11 @@ class AddNewItem extends React.Component {
         <div className="hero-input">
           <h1>Save the environment!</h1>
 
-        <form id="myForm" onSubmit={this.itemOnSubmit}>
+        <form onSubmit={this.itemOnSubmit}>
           <label>
             <input
-              placeholder="How do you want to save the environment today?"
               className="new-item-input"
+              placeholder="How do you want to save the environment today? 🐝 🌱 "
               type="text"
               onChange={this.handleNewItem}
               value={this.state.newItem} />
