@@ -3,7 +3,6 @@ import Goal from "./goal"
 import AddNewItem from "./addnewitem"
 import Body from "./body"
 
-
 class App extends React.Component {
   constructor(props) {
     super(props)
