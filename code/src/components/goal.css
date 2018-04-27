@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-column-gap: 10px;
+  padding-top: 2px;
 }
 
 .checkbox-container {
@@ -63,15 +64,19 @@
 
 .goal-text {
   font-family: "Arial";
-  font-size: 15px;
+  font-size: 30px;
   display: inline-block;
-  margin-bottom: 50px;
+  padding: 2px;
+  border-top: 1px solid #a29e9e;
+}
+
+.formContain {
 }
 
 button {
-  background-color: red;
+  background-color: #d21b1b;
   border:none;
-  width: 7%;
+  width: 80px;
   color: white;
   font-size: 14px;
   height: 40px;
