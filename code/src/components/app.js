@@ -2,7 +2,7 @@ import React from "react"
 import Goal from "./goal"
 import AddNewItem from "./addnewitem"
 import Body from "./body"
-import Header from "./header"
+
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class App extends React.Component {
   itemToList = newText => {
     console.log(this.state.goals)
     const environmentItems = this.state.goals
-    environmentItems.push({
+    environmentItems.unshift({
       id: Date.now(),
       text: newText,
       days: [false, false, false, false, false, false, false]
@@ -56,7 +56,6 @@ class App extends React.Component {
    return (
      <div>
        <Body>
-         <Header />
          <AddNewItem
            handleOnSubmit={this.itemToList} />
          {this.state.goals.map((listGoal, index) => {

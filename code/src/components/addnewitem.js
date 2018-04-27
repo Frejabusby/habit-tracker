@@ -14,17 +14,23 @@ class AddNewItem extends React.Component {
     })
   }
 
-  itemOnSubmit = () => {
+  itemOnSubmit = event => {
+    event.preventDefault()
   this.props.handleOnSubmit(this.state.newItem)
   }
 
   render() {
-    console.log(this.state.newItem)
+
     return (
-      <div>
+      <div className="hero">
+        <img src={require(`../images/plant.jpg`)}/>
+        <div className="hero-input">
+          <h1>Save the environment!</h1>
+
         <form id="myForm" onSubmit={this.itemOnSubmit}>
           <label>
             <input
+              placeholder="How do you want to save the environment today?"
               className="new-item-input"
               type="text"
               onChange={this.handleNewItem}
@@ -32,6 +38,7 @@ class AddNewItem extends React.Component {
           </label>
           <button className="add-item-button">Add</button>
         </form>
+        </div>
       </div>
     )
   }
