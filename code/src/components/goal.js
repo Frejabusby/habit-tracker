@@ -12,7 +12,7 @@ class Goal extends React.Component {
   render() {
     return (
       <div>
-        <form>
+        <form className="formContain">
           <h2 className="goal-text">{this.props.text}</h2>
           <div className="day-container">
             <h3>Måndag</h3>
