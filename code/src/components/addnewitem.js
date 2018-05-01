@@ -17,6 +17,7 @@ class AddNewItem extends React.Component {
   itemOnSubmit = event => {
     event.preventDefault()
     this.props.handleOnSubmit(this.state.newItem)
+
   }
 
   render() {
