@@ -14,13 +14,13 @@ class Goal extends React.Component {
       <div className="goal-container">
         <h2 className="goal-text">{this.props.text}</h2>
         <div className="day-container">
-          <h3>Måndag</h3>
-          <h3>Tisdag</h3>
-          <h3>Onsdag</h3>
-          <h3>Torsdag</h3>
-          <h3>Fredag</h3>
-          <h3>Lördag</h3>
-          <h3>Söndag</h3>
+          <h3>Monday</h3>
+          <h3>Tuesday</h3>
+          <h3>Wednesday</h3>
+          <h3>Thursday</h3>
+          <h3>Friday</h3>
+          <h3>Saturday</h3>
+          <h3>Sunday</h3>
           {this.props.days.map((day, index) => <Day
             key={index}
             done={day}
