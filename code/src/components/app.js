@@ -21,7 +21,6 @@ class App extends React.Component {
   }
 
   itemToList = newText => {
-    console.log(this.state.goals)
     const environmentItems = this.state.goals
     environmentItems.unshift({
       id: Date.now(),
