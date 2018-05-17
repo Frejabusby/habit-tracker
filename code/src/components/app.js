@@ -11,11 +11,7 @@ class App extends React.Component {
       this.state = goalTasks
     } else {
       this.state = {
-        goals: [{
-          id: Date.now(),
-          text: "",
-          days: [false, false, false, false, false, false, false]
-        }]
+        goals: []
       }
     }
   }
